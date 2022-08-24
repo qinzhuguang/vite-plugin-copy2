@@ -1,1 +1,60 @@
-import{constants as n,copyFileSync as o}from"fs";import{access as c,mkdir as f}from"fs/promises";import{basename as e,dirname as y,join as s}from"path";async function p(a){let i=y(a);await c(i,n.F_OK).catch(async t=>{t.code=="ENOENT"&&await p(i)}),await c(a,n.F_OK).catch(async t=>{t.code=="ENOENT"&&await f(a)})}function g(a){return{name:"vit-plugin-copy2",apply:"build",generateBundle:async()=>{if(Array.isArray(a))for(let{src:i,dest:t}of a)if(await p(t),Array.isArray(i))for(let r of i)await o(r,s(t,e(r)));else await o(i,s(t,e(i)))}}}export{g as VitePluginCopy};
+// index.ts
+import fs from "fs";
+import fsPromises from "fs/promises";
+import path from "path";
+async function checkDir(dest) {
+  const parents = path.dirname(dest);
+  await fsPromises.access(parents, fs.constants.F_OK).catch(async (err) => {
+    if (err.code == "ENOENT") {
+      await checkDir(parents);
+    }
+  });
+  await fsPromises.access(dest, fs.constants.F_OK).catch(async (err) => {
+    if (err.code == "ENOENT") {
+      await fsPromises.mkdir(dest);
+    }
+  });
+}
+async function copyDir(src, dest) {
+  let rd = fs.readdirSync(src);
+  for (const fd of rd) {
+    let sourceFullName = path.join(src, fd);
+    let destFullName = path.join(dest, fd);
+    if (fs.lstatSync(sourceFullName).isDirectory()) {
+      await checkDir(destFullName);
+      copyDir(sourceFullName, destFullName);
+    } else {
+      await fs.copyFileSync(sourceFullName, destFullName);
+    }
+  }
+}
+function VitePluginCopy(copyList) {
+  return {
+    name: "vit-plugin-copy2",
+    apply: "build",
+    generateBundle: async () => {
+      if (Array.isArray(copyList)) {
+        for (let { src, dest } of copyList) {
+          await checkDir(dest);
+          if (Array.isArray(src)) {
+            for (let s of src) {
+              await fs.copyFileSync(s, path.join(dest, path.basename(s)));
+            }
+          } else {
+            if (fs.lstatSync(src).isDirectory()) {
+              copyDir(src, dest);
+            } else {
+              await fs.copyFileSync(
+                src,
+                path.join(dest, path.basename(src))
+              );
+            }
+          }
+        }
+      }
+    }
+  };
+}
+export {
+  VitePluginCopy
+};

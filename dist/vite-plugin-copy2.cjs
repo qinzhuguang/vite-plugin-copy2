@@ -1,1 +1,394 @@
-"use strict";function e(e,r,t,n,a,u,c){try{var i=e[u](c);var s=i.value}catch(o){t(o);return}if(i.done){r(s)}else{Promise.resolve(s).then(n,a)}}function r(r){return function(){var t=this,n=arguments;return new Promise(function(a,u){var c=r.apply(t,n);function i(r){e(c,a,u,i,s,"next",r)}function s(r){e(c,a,u,i,s,"throw",r)}i(undefined)})}}import t from"regenerator-runtime";var n=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var c=Object.prototype.hasOwnProperty;var i=function(e,r){for(var t in r)n(e,t,{get:r[t],enumerable:!0})},s=function(e,r,t,i){var s=true,o=false,f=undefined;if(r&&typeof r=="object"||typeof r=="function")try{var p=function(){var u=v.value;!c.call(e,u)&&u!==t&&n(e,u,{get:function(){return r[u]},enumerable:!(i=a(r,u))||i.enumerable})};for(var l=u(r)[Symbol.iterator](),v;!(s=(v=l.next()).done);s=true)p()}catch(x){o=true;f=x}finally{try{if(!s&&l.return!=null){l.return()}}finally{if(o){throw f}}}return e};var o=function(e){return s(n({},"__esModule",{value:!0}),e)};var f={};i(f,{VitePluginCopy:function(){return h}});module.exports=o(f);var p=require("fs"),l=require("fs/promises"),v=require("path");function x(e){return $.apply(this,arguments)}function $(){$=r(t.mark(function e(e){var n;return t.wrap(function e(a){while(1)switch(a.prev=a.next){case 0:n=(0,v.dirname)(e);a.next=3;return(0,l.access)(n,p.constants.F_OK).catch(function(){var e=r(t.mark(function e(r){return t.wrap(function e(t){while(1)switch(t.prev=t.next){case 0:t.t0=r.code=="ENOENT";if(!t.t0){t.next=4;break}t.next=4;return x(n);case 4:case"end":return t.stop()}},e)}));return function(r){return e.apply(this,arguments)}}());case 3:a.next=5;return(0,l.access)(e,p.constants.F_OK).catch(function(){var e=r(t.mark(function e(r){return t.wrap(function e(t){while(1)switch(t.prev=t.next){case 0:t.t0=r.code=="ENOENT";if(!t.t0){t.next=4;break}t.next=4;return(0,l.mkdir)(e);case 4:case"end":return t.stop()}},e)}));return function(r){return e.apply(this,arguments)}}());case 5:case"end":return a.stop()}},e)}));return $.apply(this,arguments)}function h(e){return{name:"vit-plugin-copy2",apply:"build",generateBundle:r(t.mark(function r(){var n,a,u,c,i,s,o,f,l,$,h,y,_,w;return t.wrap(function r(t){while(1)switch(t.prev=t.next){case 0:n=true,a=false,u=undefined,c=true,i=false,s=undefined;if(!Array.isArray(e)){t.next=53;break}t.prev=2;o=e[Symbol.iterator]();case 4:if(c=(f=o.next()).done){t.next=39;break}l=f.value,$=l.src,h=l.dest;t.next=8;return x(h);case 8:if(!(t.sent,Array.isArray($))){t.next=34;break}t.prev=9;y=$[Symbol.iterator]();case 11:if(n=(_=y.next()).done){t.next=18;break}w=_.value;t.next=15;return(0,p.copyFileSync)(w,(0,v.join)(h,(0,v.basename)(w)));case 15:n=true;t.next=11;break;case 18:t.next=24;break;case 20:t.prev=20;t.t0=t["catch"](9);a=true;u=t.t0;case 24:t.prev=24;t.prev=25;if(!n&&y.return!=null){y.return()}case 27:t.prev=27;if(!a){t.next=30;break}throw u;case 30:return t.finish(27);case 31:return t.finish(24);case 32:t.next=36;break;case 34:t.next=36;return(0,p.copyFileSync)($,(0,v.join)(h,(0,v.basename)($)));case 36:c=true;t.next=4;break;case 39:t.next=45;break;case 41:t.prev=41;t.t1=t["catch"](2);i=true;s=t.t1;case 45:t.prev=45;t.prev=46;if(!c&&o.return!=null){o.return()}case 48:t.prev=48;if(!i){t.next=51;break}throw s;case 51:return t.finish(48);case 52:return t.finish(45);case 53:case"end":return t.stop()}},r,null,[[2,41,45,53],[9,20,24,32],[25,,27,31],[46,,48,52]])}))}}0&&(module.exports={VitePluginCopy:VitePluginCopy})
+"use strict";
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+    try {
+        var info = gen[key](arg);
+        var value = info.value;
+    } catch (error) {
+        reject(error);
+        return;
+    }
+    if (info.done) {
+        resolve(value);
+    } else {
+        Promise.resolve(value).then(_next, _throw);
+    }
+}
+function _asyncToGenerator(fn) {
+    return function() {
+        var self = this, args = arguments;
+        return new Promise(function(resolve, reject) {
+            var gen = fn.apply(self, args);
+            function _next(value) {
+                asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+            }
+            function _throw(err) {
+                asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+            }
+            _next(undefined);
+        });
+    };
+}
+import regeneratorRuntime from "regenerator-runtime";
+var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = function(target, all) {
+    for(var name in all)__defProp(target, name, {
+        get: all[name],
+        enumerable: true
+    });
+};
+var __copyProps = function(to, from, except, desc) {
+    if (from && typeof from === "object" || typeof from === "function") {
+        var _iteratorNormalCompletion = true, _didIteratorError = false, _iteratorError = undefined;
+        try {
+            var _loop = function() {
+                var key = _step.value;
+                if (!__hasOwnProp.call(to, key) && key !== except) __defProp(to, key, {
+                    get: function() {
+                        return from[key];
+                    },
+                    enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable
+                });
+            };
+            for(var _iterator = __getOwnPropNames(from)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true)_loop();
+        } catch (err) {
+            _didIteratorError = true;
+            _iteratorError = err;
+        } finally{
+            try {
+                if (!_iteratorNormalCompletion && _iterator.return != null) {
+                    _iterator.return();
+                }
+            } finally{
+                if (_didIteratorError) {
+                    throw _iteratorError;
+                }
+            }
+        }
+    }
+    return to;
+};
+var __toESM = function(mod, isNodeMode, target) {
+    return target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", {
+        value: mod,
+        enumerable: true
+    }) : target, mod);
+};
+var __toCommonJS = function(mod) {
+    return __copyProps(__defProp({}, "__esModule", {
+        value: true
+    }), mod);
+};
+// index.ts
+var vite_plugin_copy2_exports = {};
+__export(vite_plugin_copy2_exports, {
+    VitePluginCopy: function() {
+        return VitePluginCopy;
+    }
+});
+module.exports = __toCommonJS(vite_plugin_copy2_exports);
+var import_node_fs = __toESM(require("fs"), 1);
+var import_promises = __toESM(require("fs/promises"), 1);
+var import_node_path = __toESM(require("path"), 1);
+function checkDir(dest) {
+    return _checkDir.apply(this, arguments);
+}
+function _checkDir() {
+    _checkDir = _asyncToGenerator(/*#__PURE__*/ regeneratorRuntime.mark(function _callee(dest) {
+        var parents;
+        return regeneratorRuntime.wrap(function _callee$(_ctx) {
+            while(1)switch(_ctx.prev = _ctx.next){
+                case 0:
+                    parents = import_node_path.default.dirname(dest);
+                    _ctx.next = 3;
+                    return import_promises.default.access(parents, import_node_fs.default.constants.F_OK).catch(function() {
+                        var _ref = _asyncToGenerator(/*#__PURE__*/ regeneratorRuntime.mark(function _callee(err) {
+                            return regeneratorRuntime.wrap(function _callee$(_ctx) {
+                                while(1)switch(_ctx.prev = _ctx.next){
+                                    case 0:
+                                        if (!(err.code == "ENOENT")) {
+                                            _ctx.next = 3;
+                                            break;
+                                        }
+                                        _ctx.next = 3;
+                                        return checkDir(parents);
+                                    case 3:
+                                    case "end":
+                                        return _ctx.stop();
+                                }
+                            }, _callee);
+                        }));
+                        return function(err) {
+                            return _ref.apply(this, arguments);
+                        };
+                    }());
+                case 3:
+                    _ctx.next = 5;
+                    return import_promises.default.access(dest, import_node_fs.default.constants.F_OK).catch(function() {
+                        var _ref = _asyncToGenerator(/*#__PURE__*/ regeneratorRuntime.mark(function _callee(err) {
+                            return regeneratorRuntime.wrap(function _callee$(_ctx) {
+                                while(1)switch(_ctx.prev = _ctx.next){
+                                    case 0:
+                                        if (!(err.code == "ENOENT")) {
+                                            _ctx.next = 3;
+                                            break;
+                                        }
+                                        _ctx.next = 3;
+                                        return import_promises.default.mkdir(dest);
+                                    case 3:
+                                    case "end":
+                                        return _ctx.stop();
+                                }
+                            }, _callee);
+                        }));
+                        return function(err) {
+                            return _ref.apply(this, arguments);
+                        };
+                    }());
+                case 5:
+                case "end":
+                    return _ctx.stop();
+            }
+        }, _callee);
+    }));
+    return _checkDir.apply(this, arguments);
+}
+function copyDir(src, dest) {
+    return _copyDir.apply(this, arguments);
+}
+function _copyDir() {
+    _copyDir = _asyncToGenerator(/*#__PURE__*/ regeneratorRuntime.mark(function _callee(src, dest) {
+        var rd, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, fd, sourceFullName, destFullName;
+        return regeneratorRuntime.wrap(function _callee$(_ctx) {
+            while(1)switch(_ctx.prev = _ctx.next){
+                case 0:
+                    rd = import_node_fs.default.readdirSync(src);
+                    _iteratorNormalCompletion = true, _didIteratorError = false, _iteratorError = undefined;
+                    _ctx.prev = 2;
+                    _iterator = rd[Symbol.iterator]();
+                case 4:
+                    if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
+                        _ctx.next = 19;
+                        break;
+                    }
+                    fd = _step.value;
+                    sourceFullName = import_node_path.default.join(src, fd);
+                    destFullName = import_node_path.default.join(dest, fd);
+                    if (!import_node_fs.default.lstatSync(sourceFullName).isDirectory()) {
+                        _ctx.next = 14;
+                        break;
+                    }
+                    _ctx.next = 11;
+                    return checkDir(destFullName);
+                case 11:
+                    copyDir(sourceFullName, destFullName);
+                    _ctx.next = 16;
+                    break;
+                case 14:
+                    _ctx.next = 16;
+                    return import_node_fs.default.copyFileSync(sourceFullName, destFullName);
+                case 16:
+                    _iteratorNormalCompletion = true;
+                    _ctx.next = 4;
+                    break;
+                case 19:
+                    _ctx.next = 25;
+                    break;
+                case 21:
+                    _ctx.prev = 21;
+                    _ctx.t0 = _ctx["catch"](2);
+                    _didIteratorError = true;
+                    _iteratorError = _ctx.t0;
+                case 25:
+                    _ctx.prev = 25;
+                    _ctx.prev = 26;
+                    if (!_iteratorNormalCompletion && _iterator.return != null) {
+                        _iterator.return();
+                    }
+                case 28:
+                    _ctx.prev = 28;
+                    if (!_didIteratorError) {
+                        _ctx.next = 31;
+                        break;
+                    }
+                    throw _iteratorError;
+                case 31:
+                    return _ctx.finish(28);
+                case 32:
+                    return _ctx.finish(25);
+                case 33:
+                case "end":
+                    return _ctx.stop();
+            }
+        }, _callee, null, [
+            [
+                2,
+                21,
+                25,
+                33
+            ],
+            [
+                26,
+                ,
+                28,
+                32
+            ]
+        ]);
+    }));
+    return _copyDir.apply(this, arguments);
+}
+function VitePluginCopy(copyList) {
+    return {
+        name: "vit-plugin-copy2",
+        apply: "build",
+        generateBundle: /*#__PURE__*/ _asyncToGenerator(/*#__PURE__*/ regeneratorRuntime.mark(function _callee() {
+            var _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, _value, src, dest, _iteratorNormalCompletion1, _didIteratorError1, _iteratorError1, _iterator1, _step1, s;
+            return regeneratorRuntime.wrap(function _callee$(_ctx) {
+                while(1)switch(_ctx.prev = _ctx.next){
+                    case 0:
+                        if (!Array.isArray(copyList)) {
+                            _ctx.next = 58;
+                            break;
+                        }
+                        _iteratorNormalCompletion = true, _didIteratorError = false, _iteratorError = undefined;
+                        _ctx.prev = 2;
+                        _iterator = copyList[Symbol.iterator]();
+                    case 4:
+                        if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
+                            _ctx.next = 44;
+                            break;
+                        }
+                        _value = _step.value, src = _value.src, dest = _value.dest;
+                        _ctx.next = 8;
+                        return checkDir(dest);
+                    case 8:
+                        if (!Array.isArray(src)) {
+                            _ctx.next = 35;
+                            break;
+                        }
+                        _iteratorNormalCompletion1 = true, _didIteratorError1 = false, _iteratorError1 = undefined;
+                        _ctx.prev = 10;
+                        _iterator1 = src[Symbol.iterator]();
+                    case 12:
+                        if (_iteratorNormalCompletion1 = (_step1 = _iterator1.next()).done) {
+                            _ctx.next = 19;
+                            break;
+                        }
+                        s = _step1.value;
+                        _ctx.next = 16;
+                        return import_node_fs.default.copyFileSync(s, import_node_path.default.join(dest, import_node_path.default.basename(s)));
+                    case 16:
+                        _iteratorNormalCompletion1 = true;
+                        _ctx.next = 12;
+                        break;
+                    case 19:
+                        _ctx.next = 25;
+                        break;
+                    case 21:
+                        _ctx.prev = 21;
+                        _ctx.t0 = _ctx["catch"](10);
+                        _didIteratorError1 = true;
+                        _iteratorError1 = _ctx.t0;
+                    case 25:
+                        _ctx.prev = 25;
+                        _ctx.prev = 26;
+                        if (!_iteratorNormalCompletion1 && _iterator1.return != null) {
+                            _iterator1.return();
+                        }
+                    case 28:
+                        _ctx.prev = 28;
+                        if (!_didIteratorError1) {
+                            _ctx.next = 31;
+                            break;
+                        }
+                        throw _iteratorError1;
+                    case 31:
+                        return _ctx.finish(28);
+                    case 32:
+                        return _ctx.finish(25);
+                    case 33:
+                        _ctx.next = 41;
+                        break;
+                    case 35:
+                        if (!import_node_fs.default.lstatSync(src).isDirectory()) {
+                            _ctx.next = 39;
+                            break;
+                        }
+                        {
+                            copyDir(src, dest);
+                        }
+                        _ctx.next = 41;
+                        break;
+                    case 39:
+                        _ctx.next = 41;
+                        return import_node_fs.default.copyFileSync(src, import_node_path.default.join(dest, import_node_path.default.basename(src)));
+                    case 41:
+                        _iteratorNormalCompletion = true;
+                        _ctx.next = 4;
+                        break;
+                    case 44:
+                        _ctx.next = 50;
+                        break;
+                    case 46:
+                        _ctx.prev = 46;
+                        _ctx.t1 = _ctx["catch"](2);
+                        _didIteratorError = true;
+                        _iteratorError = _ctx.t1;
+                    case 50:
+                        _ctx.prev = 50;
+                        _ctx.prev = 51;
+                        if (!_iteratorNormalCompletion && _iterator.return != null) {
+                            _iterator.return();
+                        }
+                    case 53:
+                        _ctx.prev = 53;
+                        if (!_didIteratorError) {
+                            _ctx.next = 56;
+                            break;
+                        }
+                        throw _iteratorError;
+                    case 56:
+                        return _ctx.finish(53);
+                    case 57:
+                        return _ctx.finish(50);
+                    case 58:
+                    case "end":
+                        return _ctx.stop();
+                }
+            }, _callee, null, [
+                [
+                    2,
+                    46,
+                    50,
+                    58
+                ],
+                [
+                    10,
+                    21,
+                    25,
+                    33
+                ],
+                [
+                    26,
+                    ,
+                    28,
+                    32
+                ],
+                [
+                    51,
+                    ,
+                    53,
+                    57
+                ]
+            ]);
+        }))
+    };
+}
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
+    VitePluginCopy: VitePluginCopy
+});

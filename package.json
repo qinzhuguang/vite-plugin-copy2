@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-copy2",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Qin",
   "license": "MIT",
   "type": "module",
@@ -9,12 +9,15 @@
   "main": "dist/vite-plugin-copy2.mjs",
   "module": "dist/vite-plugin-copy2.cjs",
   "files": [
+    "index.ts",
+    "vite-plugin-copy.d.ts",
+    "tsup.config.ts",
     "dist"
   ],
   "publisher": "Qin",
   "repository": {
     "type": "git",
-    "url": "https://github.com/qinzhuguang/VitePluginCopy.git"
+    "url": "https://github.com/qinzhuguang/vite-plugin-copy2"
   },
   "scripts": {
     "build": "tsup"

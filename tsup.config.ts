@@ -5,7 +5,7 @@ export default defineConfig({
     'vite-plugin-copy2': 'index.ts'
   },
   outDir: 'dist',
-  minify: true,
+  minify: false,
   target: 'es5',
   format: ['esm', 'cjs'],
   outExtension: ({ format }) => {

@@ -24,12 +24,16 @@ export default defineConfig({
     vue(),
     VitePluginCopy([
       {
-        src: ['demo/a.js', 'demo/b.js'],
+        src: ['demo/a.js', 'demo/b.js'],  // 多个文件
         dest: 'dist/'
       },
       {
-        src: 'demo/c.js',
+        src: 'demo/c.js',  // 单个文件
         dest: 'dist/static/'
+      },
+      {
+        src: 'node_modules',  // 文件夹
+        dest: 'dist/node_modules'
       }
     ])
   ]
